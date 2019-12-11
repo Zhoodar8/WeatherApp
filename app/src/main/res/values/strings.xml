@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="btn_menu_skip">skip</string>
+    <string name="text1">В данном приложении вы можете учиться))</string>
+    <string name="text2">В данном приложении вы можете обновлять))</string>
+    <string name="text3">В данном приложении вы можете удалять</string>
+    <string name="text4">Спасибо что вы с нами))</string>
+    <string name="txt_button">Далее</string>
+    <string name="txt_button2">Старт</string>
+
+</resources>

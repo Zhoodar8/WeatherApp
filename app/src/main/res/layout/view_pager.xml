@@ -18,7 +18,8 @@
     <TextView
         android:id="@+id/txt_board"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textColor="@color/light_blue"
         android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

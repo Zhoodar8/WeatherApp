@@ -4,7 +4,8 @@
 
     <item android:id="@+id/skip"
         android:title="@string/btn_menu_skip"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom"
+        android:onClick="onClickSkip"/>
 
 
 </menu>

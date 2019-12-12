@@ -25,7 +25,7 @@
         android:layout_above="@id/tab_layout"
         android:layout_centerInParent="true"
         android:text="@string/txt_button"
-        android:background="@color/dark_red"
+        android:background="@color/light_blue"
         android:textColor="@color/white"
         android:layout_marginBottom="60dp"
         />

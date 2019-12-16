@@ -44,7 +44,7 @@
     </style>
 
     <style name="container2">
-        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingLeft">35dp</item>
         <item name="android:paddingRight">8dp</item>
         <item name="android:paddingBottom">15dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -54,7 +54,7 @@
     </style>
     <style name="container_mini">
         <item name="android:paddingTop">90dp</item>
-        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingLeft">45dp</item>
         <item name="android:paddingRight">8dp</item>
         <item name="android:paddingBottom">15dp</item>
         <item name="android:layout_height">match_parent</item>

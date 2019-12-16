@@ -31,5 +31,6 @@
     <string name="sunset_time">18:00</string>
     <string name="air_quality">Air Quality</string>
     <string name="air_quality_txt">Good</string>
+    <string name="weather_degreee">235F</string>
 
 </resources>

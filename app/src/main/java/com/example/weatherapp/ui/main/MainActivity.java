@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -64,40 +65,45 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(Call<CurrentWeather> call, Response<CurrentWeather> response) {
                                 if (response.isSuccessful() && response.body() != null){
-                                    txtWeather.setText(response.body().getMain().getTemp().toString()+"°");
-                                    Glide.with(MainActivity.this).
-                                            load("http://openweathermap.org/img/wn/"+response.body().
-                                                    getWeather().get(0).
-                                                    getIcon()+"@2x.png").
-                                            into(imgWeather);
-                                    txtCityName.setText( response.body().getName()+ " " +
-                                            response.body().getSys().getCountry());
-                                    txtCurrentWeather.setText(response.body().getWeather()
-                                    .get(0).getDescription());
-                                    txtWindSpeed.setText("SW "+response.body().
-                                            getWind().getSpeed().toString()+ " m/s");
-                                    txtSunriseTime.setText(
-                                    new SimpleDateFormat("hh : mm", Locale.US).
-                                            format(new Date(response.body().getSys().getSunrise()))
-                                    );
-                                    txtHumidity.setText(response.body().getMain()
-                                            .getHumidity()
-                                            .toString() +" %");
-                                    txtWeatherToday.setText(response.body()
-                                            .getMain()
-                                            .getTempMax().toString()+"°");
-                                    txtPressure.setText(response.body()
-                                    .getMain().getPressure().toString() +"mb");
-                                    txtCloudiness.setText(response.body()
-                                    .getClouds().getAll().toString() + "%");
-                                    txtSunset.setText(new SimpleDateFormat("hh : mm", Locale.US).
-                                            format(new Date(response.body().getSys().getSunset())));
+                                   fillViews(response);
                                 }
                             }
                             @Override
                             public void onFailure(Call<CurrentWeather> call, Throwable t) {
                                 Toast.makeText(getApplicationContext(),t.getLocalizedMessage(),Toast.LENGTH_LONG).show();                            }
                         });
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void fillViews(Response<CurrentWeather> response){
+        txtWeather.setText(response.body().getMain().getTemp().toString()+"°");
+        Glide.with(MainActivity.this).
+                load("http://openweathermap.org/img/wn/"+response.body().
+                        getWeather().get(0).
+                        getIcon()+"@2x.png").
+                into(imgWeather);
+        txtCityName.setText( response.body().getName()+ " " +
+                response.body().getSys().getCountry());
+        txtCurrentWeather.setText(response.body().getWeather()
+                .get(0).getDescription());
+        txtWindSpeed.setText("SW "+response.body().
+                getWind().getSpeed().toString()+ " m/s");
+        txtSunriseTime.setText(
+                new SimpleDateFormat("hh : mm", Locale.US).
+                        format(new Date(response.body().getSys().getSunrise()))
+        );
+        txtHumidity.setText(response.body().getMain()
+                .getHumidity()
+                .toString() +" %");
+        txtWeatherToday.setText(response.body()
+                .getMain()
+                .getTempMax().toString()+"°");
+        txtPressure.setText(response.body()
+                .getMain().getPressure().toString() +"mb");
+        txtCloudiness.setText(response.body()
+                .getClouds().getAll().toString() + "%");
+        txtSunset.setText(new SimpleDateFormat("hh : mm", Locale.US).
+                format(new Date(response.body().getSys().getSunset())));
     }
 
     public static void start(Context context) {

@@ -94,18 +94,10 @@ public class OnBoardActivity extends AppCompatActivity {
         @Override
         public void onPageScrollStateChanged(int state) { }
     };
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.skip:
 
-               // finish();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
     public void onClickSkip(MenuItem item) {
         MainActivity.start(this);
+        finish();
     }
     public static void start(Context context) {
         context.startActivity(new Intent(context, OnBoardActivity.class)); }

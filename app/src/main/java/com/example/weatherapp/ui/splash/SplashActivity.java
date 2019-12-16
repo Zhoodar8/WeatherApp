@@ -27,7 +27,6 @@ public class SplashActivity extends AppCompatActivity {
         }, 1_000);
         }
 
-
     private void selectActivity() {
         if (PreferenceHelper.getIsFirstLaunch()) {
             MainActivity.start(this);

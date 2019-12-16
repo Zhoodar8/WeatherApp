@@ -10,8 +10,70 @@
 
     <style name="Splash" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/colorGreen</item>
+    </style>
 
 
+    <style name="txt_size_S">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="txt_size_M">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_margin">5dp</item>
+
+    </style>
+
+    <style name="txt_size_L">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_margin">5dp</item>
+
+    </style>
+
+    <style name="container">
+        <item name="android:padding">32dp</item>
+        <item name="android:layout_height">130dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="container2">
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="container_mini">
+        <item name="android:paddingTop">90dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="container_horizontal">
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="imageView_style">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">50dp</item>
     </style>
 
 </resources>

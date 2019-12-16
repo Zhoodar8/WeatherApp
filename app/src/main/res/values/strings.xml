@@ -1,11 +1,35 @@
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="btn_menu_skip">skip</string>
-    <string name="text1">В данном приложении вы можете учиться))</string>
-    <string name="text2">В данном приложении вы можете обновлять))</string>
+    <string name="text1">В данном приложении вы можете учиться</string>
+    <string name="text2">В данном приложении вы можете обновлять</string>
     <string name="text3">В данном приложении вы можете удалять</string>
-    <string name="text4">Спасибо что вы с нами))</string>
+    <string name="text4">Спасибо что вы с нами</string>
     <string name="txt_button">Далее</string>
     <string name="txt_button2">Старт</string>
+    <string name="weather_key">4d63c1acf9a085448b23971128e5eddd</string>
+    <string name="txt_now">Now</string>
+    <string name="txt_today">Today</string>
+    <string name="weather_today">weather_today</string>
+    <string name="weather_ms">SW 4m/s</string>
+    <string name="humidity">Humidity</string>
+    <string name="sunrise_time">21:00</string>
+    <string name="air_quality_index">30</string>
+    <string name="air_quality_index_txt">Air Quality Index</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="humidity_percent">81%</string>
+    <string name="wind">Wind</string>
+    <string name="weather_type">Weather type</string>
+    <string name="today">Today</string>
+    <string name="weather_tday_degree">28</string>
+    <string name="pressure">1010</string>
+    <string name="max">Max</string>
+    <string name="pressure_weather">Pressure</string>
+    <string name="cloudiness">Cloudiness</string>
+    <string name="cloudiness_percent">100%</string>
+    <string name="sunset">Sunset</string>
+    <string name="sunset_time">18:00</string>
+    <string name="air_quality">Air Quality</string>
+    <string name="air_quality_txt">Good</string>
 
 </resources>

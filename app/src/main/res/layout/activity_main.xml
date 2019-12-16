@@ -1,18 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/linear_1"
+        style="@style/container"
+        android:background="@color/light_grey">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txt_date"
+            style="@style/txt_size_L"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_2"
+        style="@style/container_horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/linear_mini"
+            style="@style/container2">
+
+            <TextView
+                android:id="@+id/txt_city_name"
+                style="@style/txt_size_L"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_weather"
+                style="@style/imageView_style"
+                app:layout_constraintTop_toTopOf="@+id/txt_city_name" />
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/txt_now" />
+
+            <TextView
+                android:id="@+id/txt_weather_now"
+                style="@style/txt_size_L"
+                android:text="Hello World!" />
+
+
+            <TextView
+                android:id="@+id/txt_current_weather"
+                style="@style/txt_size_M"
+                android:text="@string/weather_type" />
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/wind" />
+
+            <TextView
+                android:id="@+id/txt_wind_ms"
+                style="@style/txt_size_L"
+                android:text="@string/weather_ms" />
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/humidity" />
+
+            <TextView
+                android:id="@+id/txt_humidity_percent"
+                style="@style/txt_size_L"
+                android:text="@string/humidity_percent" />
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/sunrise" />
+
+            <TextView
+                android:id="@+id/txt_sunrise_time"
+                style="@style/txt_size_L"
+                android:text="@string/sunrise_time" />
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/air_quality_index_txt" />
+
+            <TextView
+                android:id="@+id/txt_air_q_index"
+                style="@style/txt_size_L"
+                android:text="@string/air_quality_index" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_mini_2"
+            style="@style/container_mini">
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/today" />
+
+            <TextView
+                android:id="@+id/txt_weather_today"
+                style="@style/txt_size_L"
+                android:text="@string/weather_tday_degree"/>
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/max"/>
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/pressure_weather"/>
+
+            <TextView
+                android:id="@+id/txt_pressure"
+                style="@style/txt_size_L"
+                android:text="@string/pressure"/>
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/cloudiness"/>
+
+            <TextView
+                android:id="@+id/txt_cloudiness"
+                style="@style/txt_size_L"
+                android:text="@string/cloudiness_percent"/>
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/sunset"/>
+
+            <TextView
+                android:id="@+id/txt_sunset"
+                style="@style/txt_size_L"
+                android:text="@string/sunset_time"/>
+
+            <TextView
+                style="@style/txt_size_M"
+                android:text="@string/air_quality"/>
+
+            <TextView
+                android:id="@+id/txt_air_quality"
+                style="@style/txt_size_L"
+                android:text="@string/air_quality_txt"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

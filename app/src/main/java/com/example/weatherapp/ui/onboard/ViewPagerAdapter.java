@@ -19,7 +19,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     private Context mContext;
     private ImageView imageView;
     private TextView textView;
-    ArrayList<OnBoardData> board ;
+   private ArrayList<OnBoardData> board ;
     public ViewPagerAdapter(ArrayList<OnBoardData> board) {
         this.board =board;}
     @Override

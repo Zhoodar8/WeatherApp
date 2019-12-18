@@ -16,7 +16,15 @@
     <style name="txt_size_S">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="txt_size_SS">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">12sp</item>
     </style>
 
@@ -24,56 +32,84 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
 
+    <style name="txt_size_MM">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">5dp</item>
     </style>
 
     <style name="txt_size_L">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:layout_margin">5dp</item>
-
+        <item name="android:layout_margin">6dp</item>
     </style>
 
     <style name="container">
-        <item name="android:padding">32dp</item>
-        <item name="android:layout_height">130dp</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1.6</item>
         <item name="android:orientation">vertical</item>
     </style>
 
     <style name="container2">
-        <item name="android:paddingLeft">35dp</item>
-        <item name="android:paddingRight">8dp</item>
-        <item name="android:paddingBottom">15dp</item>
+        <item name="android:padding">2dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:orientation">vertical</item>
     </style>
     <style name="container_mini">
-        <item name="android:paddingTop">90dp</item>
-        <item name="android:paddingLeft">45dp</item>
-        <item name="android:paddingRight">8dp</item>
-        <item name="android:paddingBottom">15dp</item>
+       <item name="android:padding">2dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:orientation">vertical</item>
     </style>
     <style name="container_horizontal">
-        <item name="android:paddingLeft">8dp</item>
-        <item name="android:paddingRight">8dp</item>
-        <item name="android:paddingBottom">15dp</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1.2</item>
         <item name="android:orientation">horizontal</item>
     </style>
 
+    <style name="container_horizontal_2">
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1.6</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="constraint_LT">
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1.695</item>
+    </style>
+
     <style name="imageView_style">
-        <item name="android:layout_height">50dp</item>
-        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">40dp</item>
+
+    </style>
+
+    <style name="imageView_Forecast">
+        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_marginBottom">3dp</item>
     </style>
 
 </resources>

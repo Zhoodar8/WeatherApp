@@ -43,6 +43,17 @@ public class CurrentWeather {
     @SerializedName("cod")
     @Expose
     private Integer cod;
+    @SerializedName("dt_txt")
+    @Expose
+    private String dt_txt;
+
+    public String getDt_txt() {
+        return dt_txt;
+    }
+
+    public void setDt_txt(String dt_txt) {
+        this.dt_txt = dt_txt;
+    }
 
     public Coord getCoord() {
         return coord;

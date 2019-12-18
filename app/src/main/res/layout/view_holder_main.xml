@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="100dp"
+    android:layout_height="match_parent">
+   <ImageView
+       android:id="@+id/img_forecast"
+      style="@style/imageView_Forecast"
+       />
+
+    <TextView
+        android:id="@+id/txt_days"
+        style="@style/txt_size_MM"
+        android:text="@string/day_weather"
+        />
+
+    <TextView
+        android:id="@+id/txt_days_weather_min"
+        style="@style/txt_size_SS"
+        android:text="@string/days_weather_min"
+        />
+
+    <TextView
+        android:id="@+id/txt_days_weather_max"
+        style="@style/txt_size_SS"
+        android:text="@string/days_weather_forecast"
+        />
+
+
+
+
+</LinearLayout>

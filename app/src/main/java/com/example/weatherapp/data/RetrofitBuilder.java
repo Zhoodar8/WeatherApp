@@ -2,6 +2,8 @@ package com.example.weatherapp.data;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.weatherapp.BuildConfig.BASE_URL;
 // it's singleTon
 
 public class RetrofitBuilder {
@@ -15,7 +17,7 @@ public class RetrofitBuilder {
 
     private static WeatherService buildRetrofit(){
        return new Retrofit.Builder()
-                .baseUrl("http://api.openweathermap.org/data/2.5/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(WeatherService.class); }

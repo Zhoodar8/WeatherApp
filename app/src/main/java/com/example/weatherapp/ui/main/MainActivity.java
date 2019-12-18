@@ -1,65 +1,99 @@
 package com.example.weatherapp.ui.main;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Adapter;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.weatherapp.R;
 import com.example.weatherapp.data.Entity.CurrentWeather;
+import com.example.weatherapp.data.Entity.ForecastEntity;
 import com.example.weatherapp.data.RetrofitBuilder;
+import com.example.weatherapp.base.BaseActivity;
+import com.example.weatherapp.ui.WeatherAdapter.ForecastAdapter;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
-import okhttp3.MultipartBody;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
-    TextView txtWeather, txtDATE,txtAirIndex,txtHumidity,txtSunriseTime,txtAirQuality,
-    txtCityName,txtWindSpeed,txtCurrentWeather,txtWeatherToday,txtPressure,txtCloudiness,txtSunset;
-    ImageView imgWeather;
+import static com.example.weatherapp.BuildConfig.API_KEY;
+import static com.example.weatherapp.utils.DateParser.getData;
+
+public class MainActivity extends BaseActivity {
+
+    @BindView(R.id.txt_weather_now)
+    TextView txtWeather;
+    @BindView(R.id.txt_date)
+     TextView txtDATE;
+    @BindView(R.id.txt_current_weather)
+    TextView  txtCurrentWeather;
+    @BindView(R.id.txt_humidity_percent)
+    TextView  txtHumidity;
+    @BindView(R.id.img_weather)
+    ImageView  imgWeather;
+    @BindView(R.id.txt_city_name)
+    TextView  txtCityName;
+    @BindView(R.id.txt_wind_ms)
+    TextView  txtWindSpeed;
+    @BindView(R.id.txt_sunrise_time)
+    TextView  txtSunriseTime;
+    @BindView(R.id.txt_weather_today)
+    TextView  txtWeatherToday;
+    @BindView(R.id.txt_pressure)
+    TextView  txtPressure;
+    @BindView(R.id.txt_cloudiness)
+    TextView  txtCloudiness;
+    @BindView(R.id.txt_sunset)
+    TextView  txtSunset;
+    @BindView(R.id.recycler_weather)
+    RecyclerView mRecyclerView;
+    @Override
+    protected int getLayoutID() {
+        return R.layout.activity_main;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initViews();
         fetchWeather();
-        initListener();
+        getCityData();
+        fetchForecastWeather();
     }
-    public void initViews(){
-        txtWeather =findViewById(R.id.txt_weather_now);
-        txtDATE = findViewById(R.id.txt_date);
-        imgWeather = findViewById(R.id.img_weather);
-        txtCityName = findViewById(R.id.txt_city_name);
-        txtCurrentWeather =findViewById(R.id.txt_current_weather);
-        txtWindSpeed =findViewById(R.id.txt_wind_ms);
-        txtSunriseTime =findViewById(R.id.txt_sunrise_time);
-        txtHumidity = findViewById(R.id.txt_humidity_percent);
-        txtWeatherToday = findViewById(R.id.txt_weather_today);
-        txtPressure =findViewById(R.id.txt_pressure);
-        txtCloudiness = findViewById(R.id.txt_cloudiness);
-        txtSunset =findViewById(R.id.txt_sunset);
+
+    private void getForecast(List<CurrentWeather> list){
+        LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        mRecyclerView.setLayoutManager(manager);
+        ForecastAdapter adapter = new ForecastAdapter(list);
+        mRecyclerView.setAdapter(adapter);
     }
+
     @SuppressLint("SimpleDateFormat")
-    public void initListener(){
+    public void getCityData(){
         txtDATE.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
     }
 
     private void fetchWeather(){
         RetrofitBuilder.getService()
                 .currentWeather("Bishkek",
-                        getResources().getString(R.string.weather_key),"metric")
+                        API_KEY,"metric")
                         .enqueue(new Callback<CurrentWeather>() {
                             @SuppressLint("SetTextI18n")
                             @Override
@@ -74,8 +108,27 @@ public class MainActivity extends AppCompatActivity {
                         });
     }
 
+    private void fetchForecastWeather(){
+        RetrofitBuilder.getService()
+                .forecastWeather("Bishkek",
+                        API_KEY,"metric")
+                .enqueue(new Callback<ForecastEntity>() {
+                    @Override
+                    public void onResponse(Call<ForecastEntity> call, Response<ForecastEntity> response) {
+                        if (response.isSuccessful() && response.body() !=null){
+                              getForecast(response.body().getList());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ForecastEntity> call, Throwable t) {
+                             toast(t.getLocalizedMessage());
+                    }
+                });
+    }
+
     @SuppressLint("SetTextI18n")
-    public void fillViews(Response<CurrentWeather> response){
+    private void fillViews(Response<CurrentWeather> response){
         txtWeather.setText(response.body().getMain().getTemp().toString()+"°");
         Glide.with(MainActivity.this).
                 load("http://openweathermap.org/img/wn/"+response.body().
@@ -88,10 +141,12 @@ public class MainActivity extends AppCompatActivity {
                 .get(0).getDescription());
         txtWindSpeed.setText("SW "+response.body().
                 getWind().getSpeed().toString()+ " m/s");
+
         txtSunriseTime.setText(
-                new SimpleDateFormat("hh : mm", Locale.US).
-                        format(new Date(response.body().getSys().getSunrise()))
-        );
+                getData(response
+                                .body()
+                                .getSys()
+                                .getSunrise()));
         txtHumidity.setText(response.body().getMain()
                 .getHumidity()
                 .toString() +" %");
@@ -102,8 +157,8 @@ public class MainActivity extends AppCompatActivity {
                 .getMain().getPressure().toString() +"mb");
         txtCloudiness.setText(response.body()
                 .getClouds().getAll().toString() + "%");
-        txtSunset.setText(new SimpleDateFormat("hh : mm", Locale.US).
-                format(new Date(response.body().getSys().getSunset())));
+        txtSunset.setText(getData(
+                response.body().getSys().getSunset()));
     }
 
     public static void start(Context context) {

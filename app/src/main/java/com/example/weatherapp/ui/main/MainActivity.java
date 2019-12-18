@@ -21,6 +21,7 @@ import com.example.weatherapp.data.Entity.ForecastEntity;
 import com.example.weatherapp.data.RetrofitBuilder;
 import com.example.weatherapp.base.BaseActivity;
 import com.example.weatherapp.ui.WeatherAdapter.ForecastAdapter;
+import com.example.weatherapp.utils.DateParser;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.example.weatherapp.BuildConfig.API_KEY;
+import static com.example.weatherapp.utils.DateParser.getCityData;
 import static com.example.weatherapp.utils.DateParser.getData;
 
 public class MainActivity extends BaseActivity {
@@ -74,7 +76,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fetchWeather();
-        getCityData();
         fetchForecastWeather();
     }
 
@@ -83,11 +84,6 @@ public class MainActivity extends BaseActivity {
         mRecyclerView.setLayoutManager(manager);
         ForecastAdapter adapter = new ForecastAdapter(list);
         mRecyclerView.setAdapter(adapter);
-    }
-
-    @SuppressLint("SimpleDateFormat")
-    public void getCityData(){
-        txtDATE.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
     }
 
     private void fetchWeather(){
@@ -159,6 +155,7 @@ public class MainActivity extends BaseActivity {
                 .getClouds().getAll().toString() + "%");
         txtSunset.setText(getData(
                 response.body().getSys().getSunset()));
+        txtDATE.setText(getCityData());
     }
 
     public static void start(Context context) {

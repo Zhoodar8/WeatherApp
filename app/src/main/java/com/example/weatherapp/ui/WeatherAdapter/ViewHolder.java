@@ -1,6 +1,5 @@
 package com.example.weatherapp.ui.WeatherAdapter;
 
-import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,7 +12,6 @@ import com.example.weatherapp.R;
 import com.example.weatherapp.utils.DateParser;
 
 import java.text.ParseException;
-import java.util.Date;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -32,7 +30,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     public void onBind(String dt, String max, String min,String img ) {
         try {
-            txt_days.setText(DateParser.forCastDate(dt));
+            txt_days.setText(DateParser.foreCastDate(dt));
         } catch (ParseException e) {
             e.printStackTrace();
         }

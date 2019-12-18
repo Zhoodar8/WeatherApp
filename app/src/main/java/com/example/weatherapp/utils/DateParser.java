@@ -17,11 +17,15 @@ public class DateParser {
         return format.format(date);
     }
 
-    public static String forCastDate(String s) throws ParseException {
+    public static String foreCastDate(String s) throws ParseException {
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date = dt.parse(s);
-        SimpleDateFormat outDt = new SimpleDateFormat("dd.MMM");
+        SimpleDateFormat outDt = new SimpleDateFormat("dd.MMM-");
         String parseDate = outDt.format(date);
         return parseDate;
+    }
+
+    public static String getCityData(){
+   return   new SimpleDateFormat("dd MMMM yyyy").format(new Date());
     }
 }

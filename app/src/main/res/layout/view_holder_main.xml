@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/txt_days"
-        style="@style/txt_size_MM"
+        style="@style/txt_size_SS"
         android:text="@string/day_weather"
         />
 

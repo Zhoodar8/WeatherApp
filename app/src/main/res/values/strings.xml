@@ -36,5 +36,14 @@
     <string name="days_weather_current">18</string>
     <string name="days_weather_forecast">15</string>
     <string name="days_weather_min">56</string>
+    <string name="wind_speed">%s m/s</string>
+    <string name="percent">%s  %%</string>
+    <string name="celsius_degree">%s  °</string>
+    <string name="pressure_sign">%s  mb</string>
+    <string name="vice_city">Vice City</string>
+    <string name="set_Title">MapBox!!!</string>
+    <string name="set_Message">Set this Location ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>

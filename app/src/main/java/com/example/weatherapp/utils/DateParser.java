@@ -20,7 +20,7 @@ public class DateParser {
     public static String foreCastDate(String s) throws ParseException {
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date = dt.parse(s);
-        SimpleDateFormat outDt = new SimpleDateFormat("dd.MMM-");
+        SimpleDateFormat outDt = new SimpleDateFormat("dd.MMMM");
         String parseDate = outDt.format(date);
         return parseDate;
     }

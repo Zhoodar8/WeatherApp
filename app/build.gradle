@@ -12,10 +12,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "BASE_URL","\"${base_url}\""
-        buildConfigField "String", "API_KEY","\"${api_key}\""
+        buildConfigField "String", "BASE_URL", "\"${base_url}\""
+        buildConfigField "String", "API_KEY", "\"${api_key}\""
+        buildConfigField "String", "MAPBOX_KEY", "\"${map_key}\""
     }
-
 
 
     compileOptions {
@@ -31,6 +31,9 @@ android {
     }
 }
 
+
+
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -42,6 +45,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.5.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

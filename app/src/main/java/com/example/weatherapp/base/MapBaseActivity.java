@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.example.weatherapp.MapBoxActivity;
 import com.example.weatherapp.R;
+import com.example.weatherapp.data.PreferenceHelper;
 import com.example.weatherapp.ui.main.MainActivity;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -107,9 +108,9 @@ public abstract class MapBaseActivity extends BaseActivity implements OnMapReady
             Intent intent = new Intent(MapBaseActivity.this, MainActivity.class);
             intent.putExtra("lat", point.getLatitude());
             intent.putExtra("lon", point.getLongitude());
+            //     PreferenceHelper.saveState(point.getLatitude(), point.getLongitude());
             startActivity(intent);
         });
-
         adBuilder.create().show();
         return true;
     }

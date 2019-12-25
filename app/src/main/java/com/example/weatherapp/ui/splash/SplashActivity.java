@@ -19,12 +19,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splaah);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                selectActivity();
-            }
-        }, 1_000);
+        new Handler().postDelayed(() -> selectActivity(), 1_000);
         }
 
     private void selectActivity() {

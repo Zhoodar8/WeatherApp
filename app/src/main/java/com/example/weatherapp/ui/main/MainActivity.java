@@ -3,6 +3,7 @@ package com.example.weatherapp.ui.main;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +23,7 @@ import com.example.weatherapp.MapBoxActivity;
 import com.example.weatherapp.R;
 import com.example.weatherapp.data.Entity.CurrentWeather;
 import com.example.weatherapp.data.Entity.ForecastEntity;
+import com.example.weatherapp.data.PreferenceHelper;
 import com.example.weatherapp.data.RetrofitBuilder;
 import com.example.weatherapp.base.BaseActivity;
 import com.example.weatherapp.ui.WeatherAdapter.ForecastAdapter;
@@ -45,8 +48,6 @@ import static com.example.weatherapp.utils.DateParser.getData;
 
 public class MainActivity extends BaseActivity {
 
-    private Double lat;
-    private Double lon;
     @BindView(R.id.txt_weather_now)
     TextView txtWeather;
     @BindView(R.id.txt_date)
@@ -75,6 +76,9 @@ public class MainActivity extends BaseActivity {
     ImageView img_Location;
     @BindView(R.id.recycler_weather)
     RecyclerView mRecyclerView;
+    private Double lat;
+    private Double lon;
+    private LatLng point;
 
     @Override
     protected int getLayoutID() {
@@ -89,12 +93,10 @@ public class MainActivity extends BaseActivity {
     }
 
     private void getLatLon() {
-        lat = getIntent().getDoubleExtra("lat", 0.0);
-        lon = getIntent().getDoubleExtra("lon", 0.0);
-        if (lat != 0.0 && lon != 0.0) {
+            lat = getIntent().getDoubleExtra("lat", 0.0);
+            lon = getIntent().getDoubleExtra("lon", 0.0);
             fetchWeather();
             fetchForecastWeather();
-        }
     }
 
     private void initListener() {
@@ -106,6 +108,11 @@ public class MainActivity extends BaseActivity {
         mRecyclerView.setLayoutManager(manager);
         ForecastAdapter adapter = new ForecastAdapter(list);
         mRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     private void fetchWeather() {
@@ -161,7 +168,6 @@ public class MainActivity extends BaseActivity {
                 .get(0).getDescription());
         txtWindSpeed.setText(getString(R.string.wind_speed, response.body().
                 getWind().getSpeed().toString()));
-
         txtSunriseTime.setText(
                 getData(response
                         .body()

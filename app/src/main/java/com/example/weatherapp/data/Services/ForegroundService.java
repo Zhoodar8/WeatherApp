@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -25,7 +26,9 @@ import java.util.ArrayList;
 public class ForegroundService extends Service {
     private FusedLocationProviderClient fusedLocationProvider;
     private LocationRequest locationRequest;
-    private ArrayList<Double> location;
+    private ArrayList<String> loctn = new ArrayList<>();
+    private Double lat;
+    private Double lon;
 
 
     @Nullable
@@ -58,8 +61,14 @@ public class ForegroundService extends Service {
                 @Override
                 public void onLocationResult(LocationResult locationResult) {
                     super.onLocationResult(locationResult);
-//                    location.add(locationResult.getLastLocation().getLatitude());
-//                    location.add(locationResult.getLastLocation().getLongitude());
+                    lat=locationResult.getLastLocation().getLatitude();
+                    lon=locationResult.getLastLocation().getLongitude();
+                    String latitude = String.valueOf(lat);
+                    String longitude = String.valueOf(lon);
+                    loctn.add(latitude);
+                    loctn.add(longitude);
+                    Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude
+                            + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
 
                     Log.e("------", "lat: " + locationResult.getLastLocation().getLatitude()+
                             "lon: " + locationResult.getLastLocation().getLongitude());

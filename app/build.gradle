@@ -48,6 +48,10 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.5.0'
     implementation 'com.google.firebase:firebase-messaging:20.1.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.nabinbhandari.android:permissions:3.8'
+
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

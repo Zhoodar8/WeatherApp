@@ -13,7 +13,6 @@ public class MessagingService extends FirebaseMessagingService {
         Notification notification =  NotificationHelper.createNotification(getApplicationContext(),
                 remoteMessage.getNotification().getTitle(),
                 remoteMessage.getNotification().getBody());
-
         NotificationHelper.showNotification(getApplicationContext(),notification);
     }
 }

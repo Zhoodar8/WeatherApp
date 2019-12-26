@@ -16,6 +16,8 @@ import com.example.weatherapp.ui.main.MainActivity;
 
 import static androidx.core.app.NotificationCompat.PRIORITY_HIGH;
 import static androidx.core.app.NotificationCompat.VISIBILITY_PUBLIC;
+import static androidx.core.app.NotificationCompat.getBadgeIconType;
+import static androidx.core.app.NotificationCompat.getCategory;
 
 public class NotificationHelper {
     private static final String CHANNEL_ID = "CHANNEL_ID";
@@ -44,7 +46,7 @@ public class NotificationHelper {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "channel_name";
+            CharSequence name ="channel_name";
             String description = "channel_description";
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);

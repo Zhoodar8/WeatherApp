@@ -14,19 +14,26 @@ import static com.example.weatherapp.data.ApiEnpoints.FORECAST_WEATHER;
 public interface WeatherService {
 
     @GET(CURRENT_WEATHER)
-    Call<CurrentWeather> currentWeather(@Query("lat") Double lat,@Query("lon") Double lon,
+    Call<CurrentWeather> currentWeather(@Query("lat") Double lat,
+                                        @Query("lon") Double lon,
                                         @Query("appid") String key,
                                         @Query("units") String metric);
 
     @GET(FORECAST_WEATHER)
-    Call<ForecastEntity> forecastWeather(@Query("lat") Double lat,@Query("lon") Double lon,
+    Call<ForecastEntity> forecastWeather(@Query("lat") Double lat,
+                                         @Query("lon") Double lon,
                                          @Query("appid") String key,
                                          @Query("units") String metric);
 
-
 //    @GET(CURRENT_WEATHER)
-//    Call<CurrentWeather> currentWeather(@Query("q") String city,
-//                                        @Query("appid") String ip);
+//    Call<CurrentWeather> crntWeather(@Query("q") String city,
+//                                      @Query("metric") String metric,
+//                                      @Query("appid") String appID);
+
+//    @GET(FORECAST_WEATHER)
+//    Call<ForecastEntity> frcstWeather(@Query("q") String city,
+//                                      @Query("metric") String metric,
+//                                      @Query("appid") String appID);
 }
 
 

@@ -39,6 +39,10 @@ public class PreferenceHelper {
         double lon = Double.longBitsToDouble(preferences.getLong(LON, 0));
         return new LatLng(lat, lon);
     }
+
+    public static void clear(){
+      preferences.edit().clear().apply();
+    }
 }
 
 

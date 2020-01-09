@@ -19,7 +19,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".MapBoxActivity">
+        <activity android:name=".map.MapBoxActivity">
 
         </activity>
 
@@ -37,11 +37,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <activity
             android:name=".ui.main.MainActivity"
             android:launchMode="singleTop">
+
         </activity>
         <service
             android:name=".data.Services.MessagingService"

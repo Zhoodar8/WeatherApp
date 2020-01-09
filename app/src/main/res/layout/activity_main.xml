@@ -24,7 +24,7 @@
 
             <ImageView
                 android:id="@+id/img_location"
-                android:src="@drawable/ic_location"
+                app:srcCompat="@drawable/ic_location"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 />

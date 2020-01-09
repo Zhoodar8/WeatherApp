@@ -1,16 +1,12 @@
 package com.example.weatherapp.base;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.weatherapp.MapBoxActivity;
 import com.example.weatherapp.R;
-import com.example.weatherapp.data.PreferenceHelper;
 import com.example.weatherapp.ui.main.MainActivity;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -52,7 +48,7 @@ public abstract class MapBaseActivity extends BaseActivity implements OnMapReady
 
     @Override
     public void onMapReady(@NonNull MapboxMap mapboxMap) {
-        mapboxMap.setStyle(Style.SATELLITE_STREETS, style -> map = mapboxMap);
+        mapboxMap.setStyle(Style.MAPBOX_STREETS, style -> map = mapboxMap);
         mapboxMap.addOnMapLongClickListener(this);
     }
 

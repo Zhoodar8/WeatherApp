@@ -19,7 +19,11 @@ import java.util.zip.Inflater;
 public class ForecastAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<CurrentWeather> list;
-    public ForecastAdapter(List<CurrentWeather> list) {
+    public ForecastAdapter() {
+
+    }
+
+    public  void  updateWeather(List<CurrentWeather> list){
         this.list = list;
     }
 
@@ -37,6 +41,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ViewHolder> {
                 list.get(position).getMain().getTempMax().toString()
                 ,list.get(position).getMain().getTempMin().toString()
                 ,list.get(position).getWeather().get(0).getIcon());
+
     }
 
     @Override
